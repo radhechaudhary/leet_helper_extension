@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Leetcode AI Helper",
+  "description": "Chrome extension for leetcode problems",
+  "version": "1.0.0",
+  "permissions": [
+    "tabCapture",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/problems/*"
+      ],
+      "js": [
+        "src/content-script.jsx"
+      ]
+    }
+  ]
+}
