@@ -2,23 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { Sparkles, Key, Save, Terminal, Shield, ChevronRight, Cpu } from 'lucide-react'
 
 function App() {
-  function getModel() {
-    return new Promise((resolve) => {
-      chrome.storage.local.get(["SELECTED_MODEL"], (result) => {
-        resolve(result.SELECTED_MODEL);
-      });
-    });
-  }
+
   const [apiKey, setApiKey] = useState('')
-  const [selectedModel, setSelectedModel] = useState('gpt-4o')
+  const [selectedModel, setSelectedModel] = useState('groq-(Llama 3.1 70b)')
   const [isSaved, setIsSaved] = useState(false)
 
   useEffect(() => {
-    (async () => {
-      const model = await getModel()
-      setSelectedModel(model)
-    })()
-  }, [])
+    if (!chrome?.storage?.local) return;
+    chrome.storage.local.get(["SELECTED_MODEL"], (result) => {
+      setSelectedModel(result.SELECTED_MODEL || "gemini-1-5-pro");
+    });
+  }, []);
+
   const handleSave = () => {
     chrome.storage.local.set({
       API_KEY: apiKey
@@ -27,10 +22,18 @@ function App() {
     setTimeout(() => setIsSaved(false), 2000)
   }
 
-  useEffect(() => {
-    chrome.storage.local.set({ SELECTED_MODEL: selectedModel });
-    console.log(localStorage.getItem('SELECTED_MODEL'))
-  }, [selectedModel])
+  const changeModel = async (val) => {
+    if (!val) return;
+
+    setSelectedModel(val);
+
+    if (chrome?.storage?.local) {
+      await chrome.storage.local.set({
+        SELECTED_MODEL: val
+      });
+    }
+    console.log("Model updated:", val);
+  };
 
   return (
     <div className="w-[400px] min-h-[400px] bg-[#0a0a0a] text-zinc-100 flex flex-col font-sans selection:bg-indigo-500/30">
@@ -75,13 +78,14 @@ function App() {
               </div>
               <select
                 value={selectedModel}
-                onChange={(e) => setSelectedModel(e.target.value)}
+                onChange={(e) => changeModel(e.target.value)}
                 className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all appearance-none cursor-pointer hover:bg-zinc-800/30"
               >
                 {/* <option value="gpt-4o">GPT-4o (Omni)</option> */}
-                {/* <option value="claude-3-5-sonnet">Claude 3.5 Sonnet</option> */}
+                <option value="open AI">Open AI</option>
+                <option value="open Router">Open Router</option>
                 <option value="gemini-1-5-pro">Gemini 1.5 Pro</option>
-                <option value="llama-3-1-70b">groq (Llama 3.1 70b)</option>
+                <option value="groq-(Llama 3.1 70b)">groq (Llama 3.1 70b)</option>
               </select>
               <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
                 <ChevronRight className="w-4 h-4 text-zinc-600 rotate-90" />

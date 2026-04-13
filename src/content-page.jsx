@@ -3,7 +3,7 @@ import Chatbox from './components/chatbox'
 
 function ContentPage() {
     const [messages, setMessages] = useState([
-        { role: "ai", content: "Hello! I'm your LeetCode AI assistant. How can I help you optimize your solution today?" }
+        { role: "ai", content: "Hello! I'm your DSA tutor How can i help you today?" }
     ])
     const [dec, setDesc] = useState('');
 

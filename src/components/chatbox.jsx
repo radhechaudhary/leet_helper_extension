@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Sparkles, Send, X, Minus, Maximize2, MessageSquare, Bot, User, Trash2 } from 'lucide-react'
 import { generateResponse } from '../bot.js'
 import ReactMarkdown from "react-markdown"
-import leetcodeIcon from "../assets/leetcode.png"
 import './chatbox.css'
+import leetcode from '../assets/leetcode.png'
 
 function Chatbox({ messages, setMessages }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -111,7 +111,7 @@ function Chatbox({ messages, setMessages }) {
             <header id="lh-chat-header">
                 <div className="lh-header-title-group">
                     <div className="lh-header-icon-container">
-                        <img src={leetcodeIcon} style={{ width: '20px', height: '20px' }} />
+                        <img src='/_next/static/images/logo-dark-c96c407d175e36c81e236fcfdd682a0b.png' style={{ width: '20px', height: '20px' }} />
                     </div>
                     <div>
                         <h2 className="lh-header-title">Leet Helper</h2>
