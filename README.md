@@ -48,9 +48,9 @@ An AI-powered Chrome extension that enhances your LeetCode problem-solving exper
 3. Click the extension icon or open overlay
 4. Start chatting with the AI assistant
 
-<img src="./assets/ss1.png" alt="image" />
-<img src="./assets/ss2.png" alt="image" />
-<img src="./assets/ss3.png" alt="image" />
+<img src="./src/assets/ss1.png" alt="image" />
+<img src="./src/assets/ss2.png" alt="image" />
+<img src="./src/assets/ss3.png" alt="image" />
 
 ## Contributions are welcome!
 
