@@ -22,7 +22,7 @@ An AI-powered Chrome extension that enhances your LeetCode problem-solving exper
 17. Gives minimal hints
 
 ## Get Started (ForUser)
-1. Download the extension from [here](<file:///run/media/radhechaudhary/New%20Volume/projects/leetcode_ai_helper/dist/leet-helper-1.0.zip>)
+1. Download the extension from [here](https://github.com/radhechaudhary/leet_helper_extension/raw/main/release/leet-helper-1.0.zip)
 2. Unzip the file
 3. Go to chrome://extensions/
 4. Enable Developer Mode
