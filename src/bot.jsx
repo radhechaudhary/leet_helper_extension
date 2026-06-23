@@ -1,5 +1,4 @@
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { ChatOpenAI } from "@langchain/openai";
 import { ChatGroq } from "@langchain/groq";
 import { ChatOpenRouter } from "@langchain/openrouter";
@@ -57,6 +56,9 @@ async function generateResponse(messages) {
     for (let line of lines) {
         codeString += line.innerText + "\n"
     }
+    // #
+    const language = document.querySelectorAll('[aria-haspopup="dialog"]')[5].innerText;
+    console.log(language)
     // console.log(model + " " + key)
     const context = [{
         role: "system", content: `You are an expert Data Structures and Algorithms (DSA) tutor.
@@ -90,6 +92,7 @@ async function generateResponse(messages) {
 
             * Problem: ${document.querySelector("meta[name=description]")?.getAttribute("content") || "Not provided"}
             * User Code: ${codeString || "No code provided"}
+            * language: ${language || "Not provided"}
 
             ## Response Format (STRICT)
 

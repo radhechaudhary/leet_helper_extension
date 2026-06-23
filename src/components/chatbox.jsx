@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Sparkles, Send, X, Minus, Maximize2, MessageSquare, Bot, User, Trash2 } from 'lucide-react'
-import { generateResponse } from '../bot.js'
+import { generateResponse } from '../bot.jsx'
 import ReactMarkdown from "react-markdown"
 import './chatbox.css'
-import leetcode from '../assets/leetcode.png'
 
 function Chatbox({ messages, setMessages }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -115,10 +114,7 @@ function Chatbox({ messages, setMessages }) {
                     </div>
                     <div>
                         <h2 className="lh-header-title">Leet Helper</h2>
-                        <div className="lh-header-status">
-                            <div className="lh-status-dot" />
-                            <span className="lh-status-text">Active Overlay</span>
-                        </div>
+
                     </div>
                 </div>
                 <div className="lh-header-actions">

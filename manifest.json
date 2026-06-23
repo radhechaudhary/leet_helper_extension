@@ -4,11 +4,20 @@
   "description": "Chrome extension for leetcode problems",
   "version": "1.0.0",
   "permissions": [
-    "tabCapture",
     "activeTab",
     "scripting",
     "storage"
   ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "leet_helper@radhe.dev",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
   "action": {
     "default_popup": "index.html"
   },
@@ -21,5 +30,8 @@
         "src/content-script.jsx"
       ]
     }
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ]
 }

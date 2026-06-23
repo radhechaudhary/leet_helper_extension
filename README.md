@@ -21,6 +21,30 @@ An AI-powered Chrome extension that enhances your LeetCode problem-solving exper
 16. Simulates real interview environment
 17. Gives minimal hints
 
+## Get Started (ForUser)
+1. Download the extension from [here](<file:///run/media/radhechaudhary/New%20Volume/projects/leetcode_ai_helper/dist/leet-helper-1.0.zip>)
+2. Unzip the file
+3. Go to chrome://extensions/
+4. Enable Developer Mode
+5. Click Load unpacked
+6. Select the unzipped folder
+
+## Get Started (For Developer)
+1. Clone the repository
+    git clone https://github.com/radhechaudhary/leet_helper_extension.git
+    cd leet_helper_extension
+2. Install dependencies
+    npm install
+3. Build the extension
+    npm run build
+4. Load in Chrome
+    Go to chrome://extensions/
+    Enable Developer Mode
+5. Click Load unpacked
+6. Select the build or dist folder
+
+
+
 ## Tech Stack
 1. Frontend: React.js
 2. Extension APIs: Chrome Extension APIs
