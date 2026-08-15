@@ -2,50 +2,62 @@ import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { ChatOpenAI } from "@langchain/openai";
 import { ChatGroq } from "@langchain/groq";
 import { ChatOpenRouter } from "@langchain/openrouter";
+import { ChatOllama } from "@langchain/ollama";
 
-function getApiKey() {
+function getApiKey(model) {
     return new Promise((resolve) => {
-        chrome.storage.local.get(["API_KEY"], (result) => {
-            resolve(result.API_KEY);
+        chrome.storage.local.get([`${model}_API_KEY`], (result) => {
+            resolve(result[`${model}_API_KEY`]);
         });
     });
 }
 function getModel() {
     return new Promise((resolve) => {
-        chrome.storage.local.get(["SELECTED_MODEL"], (result) => {
-            resolve(result.SELECTED_MODEL);
+        chrome.storage.local.get([`SELECTED_MODEL`], (result) => {
+            resolve(result[`SELECTED_MODEL`]);
         });
     });
 }
-const key = await getApiKey()
+function getModelName(model) {
+    return new Promise((resolve) => {
+        chrome.storage.local.get([`${model}_MODEL_NAME`], (result) => {
+            resolve(result[`${model}_MODEL_NAME`]);
+        });
+    });
+}
+
 const model = await getModel()
+const key = await getApiKey(model)
+const modelName = await getModelName(model)
+console.log(modelName)
 var llm = null;
 if (model === "gemini-1-5-pro") {
     llm = new ChatGoogleGenerativeAI({
         apiKey: key,
-        model: "gemini-2.5-flash-lite", // fast + cheap
-        temperature: 0
+        model: "gemini-2.5-flash-lite",
     });
 }
-else if (model === "groq-(Llama 3.1 70b)") {
-    // console.log("groq " + key)
+else if (model === "groq") {
     llm = new ChatGroq({
-        model: "llama-3.1-8b-instant", // or grok-1
+        model: modelName,
         apiKey: key,
-        temperatur: 0.7
     });
 }
 else if (model === 'open AI') {
     llm = new ChatOpenAI({
         apiKey: key,
         model: "gpt-4.1",
-        temperature: 0,
     })
 }
-else {
+else if (model === "ollama") {
+    llm = new ChatOllama({
+        model: modelName,
+    })
+}
+else if (model === "open Router") {
     llm = new ChatOpenRouter(
-        "minimax/minimax-m2.5:free",
-        { temperature: 0.8, apiKey: key, }
+        modelName,
+        { apiKey: key }
     );
 }
 

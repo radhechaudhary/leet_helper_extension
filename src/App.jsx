@@ -6,6 +6,8 @@ function App() {
   const [apiKey, setApiKey] = useState('')
   const [selectedModel, setSelectedModel] = useState('groq-(Llama 3.1 70b)')
   const [isSaved, setIsSaved] = useState(false)
+  const [addModel, setAddModel] = useState(false)
+  const [modelName, setModelName] = useState('')
 
   useEffect(() => {
     if (!chrome?.storage?.local) return;
@@ -14,26 +16,35 @@ function App() {
     });
   }, []);
 
-  const handleSave = () => {
-    chrome.storage.local.set({
-      API_KEY: apiKey
-    });
+  const handleSave = async () => {
+
+    if (chrome?.storage?.local) {
+      await chrome.storage.local.set({
+        SELECTED_MODEL: selectedModel,
+        [`${selectedModel}_API_KEY`]: apiKey,
+        [`${selectedModel}_MODEL_NAME`]: modelName
+      });
+    }
+
     setIsSaved(true)
     setTimeout(() => setIsSaved(false), 2000)
   }
 
   const changeModel = async (val) => {
     if (!val) return;
-
     setSelectedModel(val);
+    console.log("Model updated:", val);
 
+
+  }
+  useEffect(() => {
     if (chrome?.storage?.local) {
-      await chrome.storage.local.set({
-        SELECTED_MODEL: val
+      chrome.storage.local.get([`${selectedModel}_API_KEY`, `${selectedModel}_MODEL_NAME`], (result) => {
+        setApiKey(result[`${selectedModel}_API_KEY`] || "");
+        setModelName(result[`${selectedModel}_MODEL_NAME`] || "");
       });
     }
-    console.log("Model updated:", val);
-  };
+  }, [selectedModel])
 
   return (
     <div className="w-[400px] min-h-[400px] bg-[#0a0a0a] text-zinc-100 flex flex-col font-sans selection:bg-indigo-500/30">
@@ -82,10 +93,11 @@ function App() {
                 className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all appearance-none cursor-pointer hover:bg-zinc-800/30"
               >
                 {/* <option value="gpt-4o">GPT-4o (Omni)</option> */}
-                <option value="open AI">Open AI</option>
-                <option value="open Router">Open Router</option>
+                <option value="open-ai">Open AI</option>
+                <option value="open-router">Open Router</option>
                 <option value="gemini-1-5-pro">Gemini 1.5 Pro</option>
-                <option value="groq-(Llama 3.1 70b)">groq (Llama 3.1 70b)</option>
+                <option value="groq">Groq</option>
+                <option value="ollama">Ollama</option>
               </select>
               <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
                 <ChevronRight className="w-4 h-4 text-zinc-600 rotate-90" />
@@ -93,8 +105,18 @@ function App() {
             </div>
           </div>
 
-          <div className="group relative">
-            <div className="absolute -inset-0.5 bg-linear-to-r from-indigo-500/20 to-violet-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500" />
+          <div className="relative flex flex-col gap-2">
+            {/* <div className="absolute -inset-0.5 bg-linear-to-r from-indigo-500/20 to-violet-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500" /> */}
+            <div className="relative flex">
+              <input
+                type="text"
+                value={modelName}
+                onChange={(e) => setModelName(e.target.value)}
+                placeholder="Enter your Model Name..."
+                className="flex-1 bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all placeholder:text-zinc-600"
+              />
+            </div>
+            {/* <div className="absolute -inset-0.5 bg-linear-to-r from-indigo-500/20 to-violet-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500" /> */}
             <div className="relative flex gap-2">
               <input
                 type="password"
@@ -125,7 +147,7 @@ function App() {
           <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Connected</span>
         </div>
       </footer>
-    </div>
+    </div >
   )
 }
 

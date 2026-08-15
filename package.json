@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@crxjs/vite-plugin": "^2.4.0",
+    "@langchain/core": "^1.2.8",
     "@langchain/google-genai": "^2.1.26",
     "@langchain/groq": "^1.2.0",
+    "@langchain/ollama": "^1.3.0",
     "@langchain/openai": "^1.4.4",
     "@langchain/openrouter": "^0.2.2",
     "@tailwindcss/vite": "^4.2.2",
