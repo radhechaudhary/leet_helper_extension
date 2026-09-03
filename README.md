@@ -52,12 +52,32 @@ leet_helper_extension/
 
 ### For Users
 
-1. Download the extension from the [releases](https://github.com/radhechaudhary/leet_helper_extension/raw/main/release/leet-helper-1.0.zip)
+#### Chrome Web Store (Recommended)
+- **Coming Soon!** The extension will be available on the [Chrome Web Store](#) for easy one-click installation
+
+#### Firefox Add-ons (Recommended)
+- **Coming Soon!** The extension will be available on [Firefox Add-ons](#) for easy one-click installation
+
+#### Manual Installation (Developer Mode)
+
+**For Chrome:**
+1. Download the extension from [releases](https://github.com/radhechaudhary/leet_helper_extension/raw/main/release/leet-helper-1.0.zip)
 2. Unzip the downloaded file
 3. Navigate to `chrome://extensions/`
-4. Enable **Developer Mode** (toggle in top-right)
+4. Enable **Developer Mode** (toggle in the top-right corner)
 5. Click **Load unpacked**
-6. Select the unzipped folder
+6. Select the unzipped `extension` folder
+7. The extension icon should appear in your Chrome toolbar
+
+**For Firefox:**
+1. Download the extension from [releases](https://github.com/radhechaudhary/leet_helper_extension/raw/main/release/leet-helper-1.0.zip)
+2. Unzip the downloaded file
+3. Navigate to `about:debugging#/runtime/this-firefox`
+4. Click **Load Temporary Add-on**
+5. Navigate to the unzipped folder and select the `manifest.json` file
+6. The extension should now be loaded and ready to use
+   
+   **Note:** Temporary add-ons are only active during the current Firefox session. To make it permanent, you'll need to package it as a `.xpi` file and install it through Firefox Add-ons
 
 ### For Developers
 
@@ -127,14 +147,33 @@ npm run dev
 - **Content Scripts** - Inject functionality into LeetCode pages
 - **Chrome Storage API** - Store user preferences
 
+## ⚙️ First Time Setup
+
+After installing the extension:
+
+1. **Configure AI Provider**
+   - Click the extension icon in your toolbar
+   - Select your preferred AI provider (OpenAI, Gemini, Groq, OpenRouter, or Ollama)
+   - Enter your API key (if using cloud-based providers)
+
+2. **Grant Permissions**
+   - Allow the extension to access LeetCode.com pages when prompted
+   - This is required for the extension to read problem statements
+
+3. **Test the Extension**
+   - Go to any LeetCode problem
+   - Click the extension icon or look for the floating widget
+   - Try sending a test message to verify everything is working
+
 ## 💡 Usage
 
 1. Open [LeetCode.com](https://leetcode.com)
-2. Navigate to any problem
-3. Click the extension icon in your toolbar or wait for the overlay to appear
+2. Navigate to any problem you want to solve
+3. Click the extension icon in your toolbar or look for the floating widget overlay
 4. Start typing your question about the problem
-5. Get AI-powered hints and explanations
+5. Get AI-powered hints, explanations, and solution approaches
 6. Review chat history for future reference
+7. Toggle **Interview Mode** for a more challenging experience with minimal hints
 
 ## 🎮 Configuration
 
