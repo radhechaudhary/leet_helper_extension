@@ -41,22 +41,80 @@ const FEATURES = [
   },
 ]
 
-const STEPS = [
-  { n: "01", title: "Install the Extension", desc: "Add Leet Helper to Chrome from the Web Store in one click." },
-  { n: "02", title: "Add Your API Key", desc: "Paste your preferred AI provider key. It stays local — always." },
-  { n: "03", title: "Open Any Problem", desc: "Navigate to any LeetCode problem as you normally would." },
-  { n: "04", title: "Ask Anything", desc: "Click the chat bubble and start a conversation with your AI pair." },
+const CHROME_STEPS = [
+  { n: "01", title: "Download Dist ZIP", desc: "Click the 'Download Chrome Dist (.zip)' button above to save leet-helper-1.0.zip.", code: "leet-helper-1.0.zip" },
+  { n: "02", title: "Extract the Archive", desc: "Unzip leet-helper-1.0.zip on your computer to get the built extension folder.", code: "unzip leet-helper-1.0.zip" },
+  { n: "03", title: "Open Extensions Page", desc: "Navigate to chrome://extensions/ in your Chrome address bar.", code: "chrome://extensions/" },
+  { n: "04", title: "Enable Developer Mode", desc: "Toggle on 'Developer mode' located in the top-right corner of the Extensions page." },
+  { n: "05", title: "Load Unpacked Extension", desc: "Click 'Load unpacked' in the top-left and select the unzipped dist folder." },
+]
+
+const FIREFOX_STEPS = [
+  { n: "01", title: "Visit Firefox Add-ons", desc: "Open the official Firefox Add-on listing page for LeetCode AI Helper.", link: "https://addons.mozilla.org/en-US/firefox/addon/leetcode-ai-helper/" },
+  { n: "02", title: "Click 'Add to Firefox'", desc: "Press the blue 'Add to Firefox' button on the Firefox Add-on store page." },
+  { n: "03", title: "Confirm Permissions", desc: "Click 'Add' on the browser confirmation popup to complete installation." },
+  { n: "04", title: "Ready for Fedora & Linux", desc: "Open any problem on LeetCode in Firefox on Fedora or Linux and start chatting with AI!" },
 ]
 
 const STATS = [
   { value: "50K+", label: "Active Users" },
   { value: "200+", label: "LeetCode Problems Covered" },
   { value: "6", label: "AI Models Supported" },
-  { value: "4.9★", label: "Chrome Store Rating" },
+  { value: "4.9★", label: "Rating across Stores" },
 ]
 
 const diffClass = (d) =>
   d === 'Easy' ? 'difficulty-easy' : d === 'Medium' ? 'difficulty-medium' : 'difficulty-hard'
+
+function ChromeIcon({ size = 20 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" fill="#4285F4" />
+      <circle cx="12" cy="12" r="4" fill="#FFFFFF" />
+      <circle cx="12" cy="12" r="3" fill="#1A73E8" />
+      <path d="M12 2C15.8 2 19 4.3 20.3 7.6L12 12V2Z" fill="#EA4335" />
+      <path d="M20.3 7.6C21.4 10.3 21.2 13.4 19.7 16L12 12L20.3 7.6Z" fill="#FBBC04" />
+      <path d="M19.7 16C18 18.9 15.1 20.9 11.7 21.3L12 12L19.7 16Z" fill="#34A853" />
+    </svg>
+  )
+}
+
+function FirefoxIcon({ size = 20 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#FF7139" opacity="0.2"/>
+      <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.52-4.48-10-10-10zm.5 3.5c3.04 0 5.6 2.03 6.33 4.82-.48-.28-1.03-.44-1.61-.44-1.42 0-2.64.93-3.04 2.22-.38-1.3-1.6-2.22-3.03-2.22-.72 0-1.39.24-1.92.65C9.9 8.04 11.05 5.5 12.5 5.5z" fill="#FF9400"/>
+    </svg>
+  )
+}
+
+function FedoraIcon({ size = 20 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-4H9V10h2V8c0-1.1.9-2 2-2h2v2h-2v2h2v2h-2v4z" fill="#51A2DA"/>
+    </svg>
+  )
+}
+
+function DownloadZipIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
+  )
+}
+
+function ExternalLinkIcon({ size = 16 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <polyline points="15 3 21 3 21 9" />
+      <line x1="10" y1="14" x2="21" y2="3" />
+    </svg>
+  )
+}
 
 function NavBar() {
   const [scrolled, setScrolled] = useState(false)
@@ -75,14 +133,14 @@ function NavBar() {
           <span className="font-bold text-lg text-gradient tracking-tight">Leet Helper</span>
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
-          {['Features', 'How It Works', 'Stats', 'FAQ'].map(s => (
+          {['Features', 'Install', 'How It Works', 'Stats', 'FAQ'].map(s => (
             <a key={s} href={`#${s.toLowerCase().replace(/ /g,'-')}`}
               className="hover:text-white transition-colors hover:text-indigo-300">{s}</a>
           ))}
         </div>
         <a href="#install"
           className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all active:scale-95 shadow-lg shadow-indigo-500/20">
-          Install Free
+          Download Free
         </a>
       </div>
     </nav>
@@ -188,7 +246,7 @@ function HeroSection() {
         <div className="space-y-8 animate-slide-up">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-xs text-indigo-300 font-semibold">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Now with Multi-Model AI Support
+            Now Available for Firefox, Fedora & Chrome
           </div>
           <h1 className="text-5xl lg:text-6xl font-black tracking-tight leading-tight">
             <span className="text-gradient">Crack LeetCode</span>
@@ -198,17 +256,19 @@ function HeroSection() {
             <span className="text-gradient-brand">your side.</span>
           </h1>
           <p className="text-zinc-400 text-lg leading-relaxed max-w-lg">
-            Leet Helper is a Chrome extension that brings an AI pair programmer directly inside LeetCode — offering hints, pattern breakdowns, and complexity analysis without breaking your flow.
+            Leet Helper brings an AI pair programmer directly inside LeetCode — offering hints, pattern breakdowns, and complexity analysis on Chrome, Firefox, and Fedora Linux.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a id="install" href="#how-it-works"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold text-sm hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-indigo-500/30 animate-glow-pulse">
-              <LeetIcon size={16} />
-              Install Extension
+            <a href="/leet-helper-1.0.zip" download="leet-helper-1.0.zip"
+              className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold text-sm hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-indigo-500/30 animate-glow-pulse">
+              <DownloadZipIcon size={18} />
+              Chrome Dist (.zip)
             </a>
-            <a href="#features"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-zinc-700 text-zinc-300 font-semibold text-sm hover:border-indigo-500/50 hover:text-white transition-all">
-              See Features →
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/leetcode-ai-helper/" target="_blank" rel="noreferrer"
+              className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-orange-500/40 bg-orange-500/10 text-orange-200 font-semibold text-sm hover:bg-orange-500/20 hover:border-orange-500/60 transition-all">
+              <FirefoxIcon size={18} />
+              Firefox / Fedora Add-on
+              <ExternalLinkIcon size={14} />
             </a>
           </div>
           <div className="flex items-center gap-6 pt-2">
@@ -260,29 +320,176 @@ function FeaturesSection() {
   )
 }
 
-function HowItWorksSection() {
+function DownloadInstallSection() {
+  const [activeTab, setActiveTab] = useState('chrome')
+
   return (
-    <section id="how-it-works" className="py-24 relative">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-0 w-72 h-72 bg-violet-600/5 rounded-full blur-3xl" />
-      </div>
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="install" className="py-24 relative bg-zinc-950/50 border-y border-zinc-800/40">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-700 bg-zinc-900 text-xs text-zinc-400 font-semibold">
-            ✦ How It Works
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-xs text-indigo-300 font-semibold">
+            ✦ Get the Extension
           </div>
-          <h2 className="text-4xl font-black text-gradient tracking-tight">Up and running in 2 minutes</h2>
+          <h2 className="text-4xl font-black text-gradient tracking-tight">Downloads & Platform Links</h2>
+          <p className="text-zinc-400 text-base max-w-2xl mx-auto">
+            Choose your platform below to download the Chrome extension build package or install directly on Firefox for Fedora Linux.
+          </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          {STEPS.map((s, i) => (
-            <div key={i} className={`glass-card glass-card-hover rounded-2xl p-6 flex gap-5 animate-slide-up delay-${(i+1)*100}`}>
-              <div className="text-4xl font-black text-gradient-brand opacity-60 flex-shrink-0 leading-none">{s.n}</div>
-              <div>
-                <h3 className="text-white font-bold mb-1.5">{s.title}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">{s.desc}</p>
+
+        {/* Platform Download Cards */}
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          {/* Chrome Dist Card */}
+          <div className="glass-card rounded-2xl p-7 flex flex-col justify-between border-indigo-500/20 hover:border-indigo-500/40 transition-all relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-600/10 rounded-full blur-2xl group-hover:bg-indigo-600/20 transition-all" />
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800">
+                    <ChromeIcon size={26} />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-lg">Chrome / Chromium</h3>
+                    <span className="text-xs text-indigo-400 font-medium">Build Dist Package (.zip)</span>
+                  </div>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-[11px] font-semibold">
+                  v1.0.0 ZIP
+                </span>
               </div>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                Download the production <code className="text-indigo-300 bg-zinc-900 px-1.5 py-0.5 rounded text-xs font-mono">dist</code> directory archive to load manually into Chrome, Brave, Edge, or Arc.
+              </p>
             </div>
-          ))}
+            <a
+              href="/leet-helper-1.0.zip"
+              download="leet-helper-1.0.zip"
+              className="w-full py-3.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm flex items-center justify-center gap-2.5 transition-all shadow-lg shadow-indigo-500/20 active:scale-[0.98]"
+            >
+              <DownloadZipIcon size={18} />
+              Download Dist ZIP (leet-helper-1.0.zip)
+            </a>
+          </div>
+
+          {/* Firefox & Fedora Card */}
+          <div className="glass-card rounded-2xl p-7 flex flex-col justify-between border-orange-500/20 hover:border-orange-500/40 transition-all relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-600/10 rounded-full blur-2xl group-hover:bg-orange-600/20 transition-all" />
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center gap-1.5">
+                    <FirefoxIcon size={24} />
+                    <FedoraIcon size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-lg">Firefox / Fedora Linux</h3>
+                    <span className="text-xs text-orange-400 font-medium">Official Mozilla Add-on</span>
+                  </div>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-300 text-[11px] font-semibold">
+                  Fedora Ready
+                </span>
+              </div>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                Install directly from the Mozilla Firefox Add-ons store. Recommended for Linux distributions including Fedora workstation.
+              </p>
+            </div>
+            <a
+              href="https://addons.mozilla.org/en-US/firefox/addon/leetcode-ai-helper/"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white font-semibold text-sm flex items-center justify-center gap-2.5 transition-all shadow-lg shadow-orange-500/20 active:scale-[0.98]"
+            >
+              <FirefoxIcon size={18} />
+              Install on Firefox / Fedora
+              <ExternalLinkIcon size={15} />
+            </a>
+          </div>
+        </div>
+
+        {/* Interactive Step-by-step Tabs */}
+        <div id="how-it-works" className="glass-card rounded-3xl p-8 border-zinc-800/80">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 border-b border-zinc-800/60 pb-6">
+            <div>
+              <h3 className="text-2xl font-bold text-white tracking-tight">Installation Guide</h3>
+              <p className="text-zinc-400 text-sm mt-1">Select your platform for step-by-step instructions</p>
+            </div>
+            <div className="flex p-1 bg-zinc-900/80 border border-zinc-800 rounded-xl self-start md:self-auto">
+              <button
+                onClick={() => setActiveTab('chrome')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                  activeTab === 'chrome'
+                    ? 'bg-indigo-600 text-white shadow-md'
+                    : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                <ChromeIcon size={16} />
+                Chrome (Dist ZIP)
+              </button>
+              <button
+                onClick={() => setActiveTab('firefox')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                  activeTab === 'firefox'
+                    ? 'bg-orange-600 text-white shadow-md'
+                    : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                <FirefoxIcon size={16} />
+                Firefox / Fedora
+              </button>
+            </div>
+          </div>
+
+          {/* Chrome Steps */}
+          {activeTab === 'chrome' && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 animate-fade-in">
+              {CHROME_STEPS.map((s, i) => (
+                <div key={i} className="bg-zinc-900/60 border border-zinc-800/60 rounded-2xl p-5 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-2xl font-black text-indigo-400 font-mono">{s.n}</span>
+                      <span className="w-2 h-2 rounded-full bg-indigo-500/50" />
+                    </div>
+                    <h4 className="text-white font-bold text-base mb-2">{s.title}</h4>
+                    <p className="text-zinc-400 text-sm leading-relaxed mb-3">{s.desc}</p>
+                  </div>
+                  {s.code && (
+                    <div className="mt-2 bg-zinc-950 px-3 py-1.5 rounded-lg border border-zinc-800 font-mono text-xs text-indigo-300 truncate">
+                      {s.code}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Firefox / Fedora Steps */}
+          {activeTab === 'firefox' && (
+            <div className="grid md:grid-cols-2 gap-5 animate-fade-in">
+              {FIREFOX_STEPS.map((s, i) => (
+                <div key={i} className="bg-zinc-900/60 border border-zinc-800/60 rounded-2xl p-5 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-2xl font-black text-orange-400 font-mono">{s.n}</span>
+                      <span className="w-2 h-2 rounded-full bg-orange-500/50" />
+                    </div>
+                    <h4 className="text-white font-bold text-base mb-2">{s.title}</h4>
+                    <p className="text-zinc-400 text-sm leading-relaxed mb-3">{s.desc}</p>
+                  </div>
+                  {s.link && (
+                    <a
+                      href={s.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-2 inline-flex items-center gap-1.5 text-xs text-orange-400 hover:text-orange-300 font-medium underline underline-offset-4"
+                    >
+                      addons.mozilla.org listing
+                      <ExternalLinkIcon size={12} />
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -311,10 +518,11 @@ function FAQSection() {
   const [open, setOpen] = useState(null)
   const faqs = [
     { q: 'Is Leet Helper free?', a: 'Yes. The extension is completely free. You only need your own API key from a supported AI provider.' },
-    { q: 'Does it store my API key on a server?', a: 'Never. Keys are stored in Chrome\'s local storage using encryption. They never leave your device.' },
-    { q: 'Which AI models are supported?', a: 'Gemini, GPT-4o, Groq (Llama 3), Open Router, Ollama (local), and more coming soon.' },
+    { q: 'How do I install the extension on Fedora Linux?', a: 'You can install it directly in Firefox on Fedora via the official Firefox Add-ons store link (addons.mozilla.org/en-US/firefox/addon/leetcode-ai-helper/). Alternatively, if using Chromium on Fedora, download the dist ZIP and load unpacked.' },
+    { q: 'How do I install on Chrome with the dist folder ZIP?', a: 'Download leet-helper-1.0.zip, extract it, open chrome://extensions/, enable Developer Mode in top right, and click "Load unpacked" to select the extracted folder.' },
+    { q: 'Does it store my API key on a server?', a: 'Never. Keys are stored in your browser\'s local storage using encryption. They never leave your device.' },
+    { q: 'Which AI models are supported?', a: 'Gemini, GPT-4o, Groq (Llama 3), OpenRouter, Ollama (local), and more.' },
     { q: 'Will it just give me the answer?', a: 'No — by design. The AI provides hints, patterns, and complexity analysis to help you think, not copy.' },
-    { q: 'Does it work on all LeetCode problems?', a: 'It works on all problems with a code editor — the AI reads the problem statement automatically.' },
   ]
   return (
     <section id="faq" className="py-24">
@@ -350,7 +558,7 @@ function CTASection() {
       <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
         <div className="relative inline-block">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-violet-500/20 blur-3xl rounded-full" />
-          <div className="relative glass-card rounded-3xl px-12 py-14 space-y-6">
+          <div className="relative glass-card rounded-3xl px-8 md:px-12 py-14 space-y-6">
             <div className="flex justify-center">
               <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 shadow-2xl shadow-indigo-500/30">
                 <LeetIcon size={40} />
@@ -359,10 +567,16 @@ function CTASection() {
             <h2 className="text-4xl font-black text-gradient">Start solving smarter today.</h2>
             <p className="text-zinc-500 text-lg max-w-lg mx-auto">Join thousands of developers who use Leet Helper to practice better, learn patterns faster, and ace their technical interviews.</p>
             <div className="flex flex-wrap justify-center gap-4 pt-2">
-              <a href="https://chrome.google.com/webstore" target="_blank" rel="noreferrer"
-                className="flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-indigo-500/30">
-                <LeetIcon size={18} />
-                Add to Chrome — It's Free
+              <a href="/leet-helper-1.0.zip" download="leet-helper-1.0.zip"
+                className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-indigo-500/30">
+                <DownloadZipIcon size={18} />
+                Download Chrome Dist (.zip)
+              </a>
+              <a href="https://addons.mozilla.org/en-US/firefox/addon/leetcode-ai-helper/" target="_blank" rel="noreferrer"
+                className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-orange-500/40 bg-orange-500/10 text-orange-200 font-semibold hover:bg-orange-500/20 transition-all active:scale-95">
+                <FirefoxIcon size={18} />
+                Firefox Add-on for Fedora
+                <ExternalLinkIcon size={14} />
               </a>
             </div>
             <p className="text-xs text-zinc-600">No sign-up required. Works instantly after install.</p>
@@ -399,7 +613,7 @@ export default function App() {
       <NavBar />
       <HeroSection />
       <FeaturesSection />
-      <HowItWorksSection />
+      <DownloadInstallSection />
       <StatsSection />
       <FAQSection />
       <CTASection />
