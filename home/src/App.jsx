@@ -57,8 +57,8 @@ const FIREFOX_STEPS = [
 ]
 
 const STATS = [
-  { value: "50K+", label: "Active Users" },
-  { value: "200+", label: "LeetCode Problems Covered" },
+  { value: "2", label: "Active Users" },
+  { value: "every problem", label: "LeetCode Problems Covered" },
   { value: "6", label: "AI Models Supported" },
   { value: "4.9★", label: "Rating across Stores" },
 ]
@@ -82,8 +82,8 @@ function ChromeIcon({ size = 20 }) {
 function FirefoxIcon({ size = 20 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#FF7139" opacity="0.2"/>
-      <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.52-4.48-10-10-10zm.5 3.5c3.04 0 5.6 2.03 6.33 4.82-.48-.28-1.03-.44-1.61-.44-1.42 0-2.64.93-3.04 2.22-.38-1.3-1.6-2.22-3.03-2.22-.72 0-1.39.24-1.92.65C9.9 8.04 11.05 5.5 12.5 5.5z" fill="#FF9400"/>
+      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#FF7139" opacity="0.2" />
+      <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.52-4.48-10-10-10zm.5 3.5c3.04 0 5.6 2.03 6.33 4.82-.48-.28-1.03-.44-1.61-.44-1.42 0-2.64.93-3.04 2.22-.38-1.3-1.6-2.22-3.03-2.22-.72 0-1.39.24-1.92.65C9.9 8.04 11.05 5.5 12.5 5.5z" fill="#FF9400" />
     </svg>
   )
 }
@@ -91,7 +91,7 @@ function FirefoxIcon({ size = 20 }) {
 function FedoraIcon({ size = 20 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-4H9V10h2V8c0-1.1.9-2 2-2h2v2h-2v2h2v2h-2v4z" fill="#51A2DA"/>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-4H9V10h2V8c0-1.1.9-2 2-2h2v2h-2v2h2v2h-2v4z" fill="#51A2DA" />
     </svg>
   )
 }
@@ -134,7 +134,7 @@ function NavBar() {
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
           {['Features', 'Install', 'How It Works', 'Stats', 'FAQ'].map(s => (
-            <a key={s} href={`#${s.toLowerCase().replace(/ /g,'-')}`}
+            <a key={s} href={`#${s.toLowerCase().replace(/ /g, '-')}`}
               className="hover:text-white transition-colors hover:text-indigo-300">{s}</a>
           ))}
         </div>
@@ -150,8 +150,8 @@ function NavBar() {
 function LeetIcon({ size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-      <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.274 4.43-.12l1.523 1.415c.54.54 1.414.54 1.955-.002a1.378 1.378 0 0 0 .003-1.952l-1.524-1.416a5.257 5.257 0 0 0-1.46-.894 4.742 4.742 0 0 0-.985-.264 5.616 5.616 0 0 0-1.59.013z" fill="white"/>
-      <path d="M15.551 15.55a1.378 1.378 0 0 0 0 1.953l2.396 2.392.02.019a3.021 3.021 0 0 0 4.205-.038l2.396-2.392a1.378 1.378 0 0 0 .003-1.951 1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a.268.268 0 0 1-.376.003l-2.348-2.375a1.374 1.374 0 0 0-1.949 0z" fill="white" opacity="0.6"/>
+      <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.274 4.43-.12l1.523 1.415c.54.54 1.414.54 1.955-.002a1.378 1.378 0 0 0 .003-1.952l-1.524-1.416a5.257 5.257 0 0 0-1.46-.894 4.742 4.742 0 0 0-.985-.264 5.616 5.616 0 0 0-1.59.013z" fill="white" />
+      <path d="M15.551 15.55a1.378 1.378 0 0 0 0 1.953l2.396 2.392.02.019a3.021 3.021 0 0 0 4.205-.038l2.396-2.392a1.378 1.378 0 0 0 .003-1.951 1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a.268.268 0 0 1-.376.003l-2.348-2.375a1.374 1.374 0 0 0-1.949 0z" fill="white" opacity="0.6" />
     </svg>
   )
 }
@@ -191,7 +191,7 @@ function CodeWindow() {
         <div className="bg-indigo-500/10 border border-indigo-500/20 rounded-xl p-3 mt-2">
           <div className="flex items-center gap-2 mb-1.5">
             <div className="p-1 rounded-md bg-indigo-500/20">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="#818cf8"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8" stroke="white" strokeWidth="2"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#818cf8"><circle cx="12" cy="12" r="10" /><path d="M8 12h8M12 8v8" stroke="white" strokeWidth="2" /></svg>
             </div>
             <span className="text-[11px] font-semibold text-indigo-400 uppercase tracking-wider">Leet Helper AI</span>
           </div>
@@ -216,7 +216,7 @@ function ProblemList() {
         {PROBLEMS.map(p => (
           <div key={p.id} className="flex items-center gap-3 px-4 py-2.5 hover:bg-zinc-800/20 transition-colors cursor-pointer">
             <div className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 ${p.solved ? 'bg-emerald-500/20' : 'bg-zinc-800'}`}>
-              {p.solved && <svg width="8" height="8" viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="#10b981" strokeWidth="1.5" fill="none" strokeLinecap="round"/></svg>}
+              {p.solved && <svg width="8" height="8" viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="#10b981" strokeWidth="1.5" fill="none" strokeLinecap="round" /></svg>}
             </div>
             <span className="text-xs text-zinc-300 flex-1 truncate">{p.title}</span>
             <span className={`text-[10px] px-1.5 py-0.5 rounded-md font-semibold ${diffClass(p.diff)}`}>{p.diff}</span>
@@ -308,7 +308,7 @@ function FeaturesSection() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {FEATURES.map((f, i) => (
-            <div key={i} className={`glass-card glass-card-hover rounded-2xl p-6 space-y-3 animate-slide-up delay-${(i+1)*100}`}>
+            <div key={i} className={`glass-card glass-card-hover rounded-2xl p-6 space-y-3 animate-slide-up delay-${(i + 1) * 100}`}>
               <div className="text-3xl">{f.icon}</div>
               <h3 className="text-white font-bold text-lg">{f.title}</h3>
               <p className="text-zinc-500 text-sm leading-relaxed">{f.desc}</p>
@@ -416,22 +416,20 @@ function DownloadInstallSection() {
             <div className="flex p-1 bg-zinc-900/80 border border-zinc-800 rounded-xl self-start md:self-auto">
               <button
                 onClick={() => setActiveTab('chrome')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                  activeTab === 'chrome'
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeTab === 'chrome'
                     ? 'bg-indigo-600 text-white shadow-md'
                     : 'text-zinc-400 hover:text-white'
-                }`}
+                  }`}
               >
                 <ChromeIcon size={16} />
                 Chrome (Dist ZIP)
               </button>
               <button
                 onClick={() => setActiveTab('firefox')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                  activeTab === 'firefox'
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeTab === 'firefox'
                     ? 'bg-orange-600 text-white shadow-md'
                     : 'text-zinc-400 hover:text-white'
-                }`}
+                  }`}
               >
                 <FirefoxIcon size={16} />
                 Firefox / Fedora
