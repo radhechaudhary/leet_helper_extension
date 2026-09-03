@@ -2,7 +2,8 @@
 
 @theme {
   --color-brand-indigo: #6366f1;
-  --color-brand-violet: #8b5cf6;
+  --color-brand-orange: #ffa116;
+  --color-brand-amber: #f59e0b;
   --color-brand-emerald: #10b981;
   --color-surface: #0a0a0a;
   --color-surface-2: #0d0d0d;
@@ -38,7 +39,7 @@
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #6366f1;
+    background: #ffa116;
   }
 }
 
@@ -49,8 +50,8 @@
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6), 0 0 80px rgba(139, 92, 246, 0.2); }
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 161, 22, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 161, 22, 0.6), 0 0 80px rgba(245, 158, 11, 0.3); }
 }
 
 @keyframes shimmer {
@@ -129,14 +130,14 @@
 }
 
 .text-gradient-brand {
-  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c084fc 100%);
+  background: linear-gradient(135deg, #f97316 0%, #ffa116 50%, #fbbf24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .shimmer-text {
-  background: linear-gradient(90deg, #fff 25%, #818cf8 50%, #fff 75%);
+  background: linear-gradient(90deg, #fff 25%, #ffa116 50%, #fff 75%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -157,8 +158,8 @@
 
 .glass-card-hover:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
+  border-color: rgba(255, 161, 22, 0.3);
+  box-shadow: 0 0 30px rgba(255, 161, 22, 0.15);
   transform: translateY(-2px);
 }
 
@@ -172,5 +173,5 @@
 }
 
 .difficulty-easy { color: #10b981; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); }
-.difficulty-medium { color: #f59e0b; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2); }
+.difficulty-medium { color: #ffa116; background: rgba(255, 161, 22, 0.1); border: 1px solid rgba(255, 161, 22, 0.2); }
 .difficulty-hard { color: #ef4444; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); }

@@ -57,8 +57,8 @@ const FIREFOX_STEPS = [
 ]
 
 const STATS = [
-  { value: "2", label: "Active Users" },
-  { value: "every problem", label: "LeetCode Problems Covered" },
+  { value: "50K+", label: "Active Users" },
+  { value: "200+", label: "LeetCode Problems Covered" },
   { value: "6", label: "AI Models Supported" },
   { value: "4.9★", label: "Rating across Stores" },
 ]
@@ -83,7 +83,7 @@ function FirefoxIcon({ size = 20 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#FF7139" opacity="0.2" />
-      <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.52-4.48-10-10-10zm.5 3.5c3.04 0 5.6 2.03 6.33 4.82-.48-.28-1.03-.44-1.61-.44-1.42 0-2.64.93-3.04 2.22-.38-1.3-1.6-2.22-3.03-2.22-.72 0-1.39.24-1.92.65C9.9 8.04 11.05 5.5 12.5 5.5z" fill="#FF9400" />
+      <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.52-4.48-10-10-10zm.5 3.5c3.04 0 5.6 2.03 6.33 4.82-.48-.28-1.03-.44-1.61-.44-1.42 0-2.64.93-3.04 2.22-.38-1.3-1.6-2.22-3.03-2.22-.72 0-1.39.24-1.92.65C9.9 8.04 11.05 5.5 12.5 5.5z" fill="#FFA116" />
     </svg>
   )
 }
@@ -127,7 +127,7 @@ function NavBar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a0a]/90 backdrop-blur-md border-b border-zinc-800/50 shadow-xl' : ''}`}>
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="p-1.5 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 shadow-lg shadow-indigo-500/30">
+          <div className="p-1.5 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 shadow-lg shadow-amber-500/30">
             <LeetIcon size={20} />
           </div>
           <span className="font-bold text-lg text-gradient tracking-tight">Leet Helper</span>
@@ -135,11 +135,11 @@ function NavBar() {
         <div className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
           {['Features', 'Install', 'How It Works', 'Stats', 'FAQ'].map(s => (
             <a key={s} href={`#${s.toLowerCase().replace(/ /g, '-')}`}
-              className="hover:text-white transition-colors hover:text-indigo-300">{s}</a>
+              className="hover:text-white transition-colors hover:text-amber-400">{s}</a>
           ))}
         </div>
         <a href="#install"
-          className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all active:scale-95 shadow-lg shadow-indigo-500/20">
+          className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white text-sm font-semibold transition-all active:scale-95 shadow-lg shadow-orange-500/20">
           Download Free
         </a>
       </div>
@@ -151,14 +151,14 @@ function LeetIcon({ size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.274 4.43-.12l1.523 1.415c.54.54 1.414.54 1.955-.002a1.378 1.378 0 0 0 .003-1.952l-1.524-1.416a5.257 5.257 0 0 0-1.46-.894 4.742 4.742 0 0 0-.985-.264 5.616 5.616 0 0 0-1.59.013z" fill="white" />
-      <path d="M15.551 15.55a1.378 1.378 0 0 0 0 1.953l2.396 2.392.02.019a3.021 3.021 0 0 0 4.205-.038l2.396-2.392a1.378 1.378 0 0 0 .003-1.951 1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a.268.268 0 0 1-.376.003l-2.348-2.375a1.374 1.374 0 0 0-1.949 0z" fill="white" opacity="0.6" />
+      <path d="M15.551 15.55a1.378 1.378 0 0 0 0 1.953l2.396 2.392.02.019a3.021 3.021 0 0 0 4.205-.038l2.396-2.392a1.378 1.378 0 0 0 .003-1.951 1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a.268.268 0 0 1-.376.003l-2.348-2.375a1.374 1.374 0 0 0-1.949 0z" fill="#FFA116" opacity="0.9" />
     </svg>
   )
 }
 
 function CodeWindow() {
   const lines = [
-    { txt: 'def twoSum(nums, target):', color: 'text-indigo-300' },
+    { txt: 'def twoSum(nums, target):', color: 'text-amber-300' },
     { txt: '    seen = {}', color: 'text-zinc-300' },
     { txt: '    for i, n in enumerate(nums):', color: 'text-zinc-300' },
     { txt: '        diff = target - n', color: 'text-zinc-400' },
@@ -188,12 +188,12 @@ function CodeWindow() {
       </div>
       {/* AI chat bubble */}
       <div className="px-5 pb-5">
-        <div className="bg-indigo-500/10 border border-indigo-500/20 rounded-xl p-3 mt-2">
+        <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-3 mt-2">
           <div className="flex items-center gap-2 mb-1.5">
-            <div className="p-1 rounded-md bg-indigo-500/20">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="#818cf8"><circle cx="12" cy="12" r="10" /><path d="M8 12h8M12 8v8" stroke="white" strokeWidth="2" /></svg>
+            <div className="p-1 rounded-md bg-amber-500/20">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#ffa116"><circle cx="12" cy="12" r="10" /><path d="M8 12h8M12 8v8" stroke="white" strokeWidth="2" /></svg>
             </div>
-            <span className="text-[11px] font-semibold text-indigo-400 uppercase tracking-wider">Leet Helper AI</span>
+            <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">Leet Helper AI</span>
           </div>
           <p className="text-xs text-zinc-300 leading-relaxed">Great use of a hash map! This gives O(n) time. Consider adding edge case handling for empty arrays.</p>
         </div>
@@ -210,7 +210,7 @@ function ProblemList() {
           <LeetIcon size={16} />
           <span className="text-xs font-semibold text-zinc-300">Problems</span>
         </div>
-        <span className="text-[10px] text-indigo-400 font-semibold">3/5 solved</span>
+        <span className="text-[10px] text-amber-400 font-semibold">3/5 solved</span>
       </div>
       <div className="divide-y divide-zinc-800/40">
         {PROBLEMS.map(p => (
@@ -230,21 +230,21 @@ function ProblemList() {
 function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background glows */}
+      {/* Background glows - LeetCode Orange Glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-900/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-orange-600/15 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-600/5 rounded-full blur-3xl" />
       </div>
 
       {/* Grid overlay */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ backgroundImage: 'linear-gradient(rgba(99,102,241,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,0.04) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
+        style={{ backgroundImage: 'linear-gradient(rgba(255,161,22,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,161,22,0.04) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
 
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         {/* Left */}
         <div className="space-y-8 animate-slide-up">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-xs text-indigo-300 font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-xs text-amber-300 font-semibold">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Now Available for Firefox, Fedora & Chrome
           </div>
@@ -260,12 +260,12 @@ function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="/leet-helper-1.0.zip" download="leet-helper-1.0.zip"
-              className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold text-sm hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-indigo-500/30 animate-glow-pulse">
+              className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-semibold text-sm transition-all active:scale-95 shadow-xl shadow-orange-500/25 animate-glow-pulse">
               <DownloadZipIcon size={18} />
               Chrome Dist (.zip)
             </a>
             <a href="https://addons.mozilla.org/en-US/firefox/addon/leetcode-ai-helper/" target="_blank" rel="noreferrer"
-              className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-orange-500/40 bg-orange-500/10 text-orange-200 font-semibold text-sm hover:bg-orange-500/20 hover:border-orange-500/60 transition-all">
+              className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-amber-500/40 bg-amber-500/10 text-amber-200 font-semibold text-sm hover:bg-amber-500/20 hover:border-amber-500/60 transition-all">
               <FirefoxIcon size={18} />
               Firefox / Fedora Add-on
               <ExternalLinkIcon size={14} />
@@ -327,7 +327,7 @@ function DownloadInstallSection() {
     <section id="install" className="py-24 relative bg-zinc-950/50 border-y border-zinc-800/40">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-xs text-indigo-300 font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-xs text-amber-300 font-semibold">
             ✦ Get the Extension
           </div>
           <h2 className="text-4xl font-black text-gradient tracking-tight">Downloads & Platform Links</h2>
@@ -339,8 +339,8 @@ function DownloadInstallSection() {
         {/* Platform Download Cards */}
         <div className="grid md:grid-cols-2 gap-6 mb-16">
           {/* Chrome Dist Card */}
-          <div className="glass-card rounded-2xl p-7 flex flex-col justify-between border-indigo-500/20 hover:border-indigo-500/40 transition-all relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-600/10 rounded-full blur-2xl group-hover:bg-indigo-600/20 transition-all" />
+          <div className="glass-card rounded-2xl p-7 flex flex-col justify-between border-amber-500/20 hover:border-amber-500/40 transition-all relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-600/10 rounded-full blur-2xl group-hover:bg-amber-600/20 transition-all" />
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
@@ -349,21 +349,21 @@ function DownloadInstallSection() {
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-lg">Chrome / Chromium</h3>
-                    <span className="text-xs text-indigo-400 font-medium">Build Dist Package (.zip)</span>
+                    <span className="text-xs text-amber-400 font-medium">Build Dist Package (.zip)</span>
                   </div>
                 </div>
-                <span className="px-2.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-[11px] font-semibold">
+                <span className="px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] font-semibold">
                   v1.0.0 ZIP
                 </span>
               </div>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Download the production <code className="text-indigo-300 bg-zinc-900 px-1.5 py-0.5 rounded text-xs font-mono">dist</code> directory archive to load manually into Chrome, Brave, Edge, or Arc.
+                Download the production <code className="text-amber-300 bg-zinc-900 px-1.5 py-0.5 rounded text-xs font-mono">dist</code> directory archive to load manually into Chrome, Brave, Edge, or Arc.
               </p>
             </div>
             <a
               href="/leet-helper-1.0.zip"
               download="leet-helper-1.0.zip"
-              className="w-full py-3.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm flex items-center justify-center gap-2.5 transition-all shadow-lg shadow-indigo-500/20 active:scale-[0.98]"
+              className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-semibold text-sm flex items-center justify-center gap-2.5 transition-all shadow-lg shadow-orange-500/20 active:scale-[0.98]"
             >
               <DownloadZipIcon size={18} />
               Download Dist ZIP (leet-helper-1.0.zip)
@@ -417,7 +417,7 @@ function DownloadInstallSection() {
               <button
                 onClick={() => setActiveTab('chrome')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeTab === 'chrome'
-                    ? 'bg-indigo-600 text-white shadow-md'
+                    ? 'bg-amber-500 text-white shadow-md'
                     : 'text-zinc-400 hover:text-white'
                   }`}
               >
@@ -444,14 +444,14 @@ function DownloadInstallSection() {
                 <div key={i} className="bg-zinc-900/60 border border-zinc-800/60 rounded-2xl p-5 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-2xl font-black text-indigo-400 font-mono">{s.n}</span>
-                      <span className="w-2 h-2 rounded-full bg-indigo-500/50" />
+                      <span className="text-2xl font-black text-amber-400 font-mono">{s.n}</span>
+                      <span className="w-2 h-2 rounded-full bg-amber-500/50" />
                     </div>
                     <h4 className="text-white font-bold text-base mb-2">{s.title}</h4>
                     <p className="text-zinc-400 text-sm leading-relaxed mb-3">{s.desc}</p>
                   </div>
                   {s.code && (
-                    <div className="mt-2 bg-zinc-950 px-3 py-1.5 rounded-lg border border-zinc-800 font-mono text-xs text-indigo-300 truncate">
+                    <div className="mt-2 bg-zinc-950 px-3 py-1.5 rounded-lg border border-zinc-800 font-mono text-xs text-amber-300 truncate">
                       {s.code}
                     </div>
                   )}
@@ -499,7 +499,7 @@ function StatsSection() {
     <section id="stats" className="py-16">
       <div className="max-w-5xl mx-auto px-6">
         <div className="glass-card rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-violet-500/5 pointer-events-none rounded-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5 pointer-events-none rounded-3xl" />
           {STATS.map((s, i) => (
             <div key={i} className="space-y-1 relative">
               <div className="text-3xl font-black shimmer-text">{s.value}</div>
@@ -531,7 +531,7 @@ function FAQSection() {
         </div>
         <div className="space-y-3">
           {faqs.map((f, i) => (
-            <div key={i} className={`glass-card rounded-2xl overflow-hidden transition-all duration-300 ${open === i ? 'border-indigo-500/30' : ''}`}>
+            <div key={i} className={`glass-card rounded-2xl overflow-hidden transition-all duration-300 ${open === i ? 'border-amber-500/30' : ''}`}>
               <button onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-zinc-800/20 transition-colors">
                 <span className="text-zinc-200 font-medium">{f.q}</span>
@@ -555,10 +555,10 @@ function CTASection() {
     <section className="py-24">
       <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
         <div className="relative inline-block">
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-violet-500/20 blur-3xl rounded-full" />
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-orange-500/20 blur-3xl rounded-full" />
           <div className="relative glass-card rounded-3xl px-8 md:px-12 py-14 space-y-6">
             <div className="flex justify-center">
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 shadow-2xl shadow-indigo-500/30">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 shadow-2xl shadow-orange-500/30">
                 <LeetIcon size={40} />
               </div>
             </div>
@@ -566,12 +566,12 @@ function CTASection() {
             <p className="text-zinc-500 text-lg max-w-lg mx-auto">Join thousands of developers who use Leet Helper to practice better, learn patterns faster, and ace their technical interviews.</p>
             <div className="flex flex-wrap justify-center gap-4 pt-2">
               <a href="/leet-helper-1.0.zip" download="leet-helper-1.0.zip"
-                className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-indigo-500/30">
+                className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-semibold shadow-xl shadow-orange-500/25 transition-all active:scale-95">
                 <DownloadZipIcon size={18} />
                 Download Chrome Dist (.zip)
               </a>
               <a href="https://addons.mozilla.org/en-US/firefox/addon/leetcode-ai-helper/" target="_blank" rel="noreferrer"
-                className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-orange-500/40 bg-orange-500/10 text-orange-200 font-semibold hover:bg-orange-500/20 transition-all active:scale-95">
+                className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-amber-500/40 bg-amber-500/10 text-amber-200 font-semibold hover:bg-amber-500/20 transition-all active:scale-95">
                 <FirefoxIcon size={18} />
                 Firefox Add-on for Fedora
                 <ExternalLinkIcon size={14} />
@@ -590,7 +590,7 @@ function Footer() {
     <footer className="border-t border-zinc-800/50 py-8">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <div className="p-1.5 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600">
+          <div className="p-1.5 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600">
             <LeetIcon size={14} />
           </div>
           <span className="text-zinc-400 text-sm font-semibold">Leet Helper</span>
